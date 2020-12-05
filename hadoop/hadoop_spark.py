@@ -23,12 +23,21 @@ specified_num_nodes = input('Please key in the number of nodes for the cluster:'
 
 region_name='us-east-1'
 
+# python 2
+# credentials_file = open("../credentials.py", 'w')
+# credentials_file.write('aws_access_key_id=\'{}\'\n'.format(aws_access_key_id))
+# credentials_file.write('aws_secret_access_key=\'{}\'\n'.format(aws_secret_access_key))
+# credentials_file.write('aws_session_token=\'{}\'\n'.format(aws_session_token))
+# credentials_file.write('region_name=\'{}\'\n'.format(region_name))
+# credentials_file.close()
 
+
+#  python 3
 credentials_file = open("../credentials.py", 'w')
-credentials_file.write('aws_access_key_id=\'{}\'\n'.format(aws_access_key_id))
-credentials_file.write('aws_secret_access_key=\'{}\'\n'.format(aws_secret_access_key))
-credentials_file.write('aws_session_token=\'{}\'\n'.format(aws_session_token))
-credentials_file.write('region_name=\'{}\'\n'.format(region_name))
+credentials_file.write('aws_access_key_id={}\n'.format(aws_access_key_id))
+credentials_file.write('aws_secret_access_key={}\n'.format(aws_secret_access_key))
+credentials_file.write('aws_session_token={}\n'.format(aws_session_token))
+credentials_file.write('region_name={}\n'.format(region_name))
 credentials_file.close()
 
 ec2 = boto3.client(
