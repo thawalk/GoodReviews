@@ -152,7 +152,8 @@ time.sleep(80)
 print("------------------------- Updating the packages on the new data nodes --------------------------------------")
 
 
-
+print(new_node_ips)
+print(key_pair)
 # update the packages only on the new nodes
 for instance_ip in new_node_ips:
     success = False

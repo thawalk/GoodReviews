@@ -3,7 +3,7 @@
 172.31.54.248 n0
 172.31.52.196 d1
 172.31.60.249 d2
-172.31.62.179 d3
+172.31.55.59 d3
 
 # The following lines are desirable for IPv6 capable hosts
 ::1 ip6-localhost ip6-loopback
