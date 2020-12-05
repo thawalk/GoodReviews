@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<!-- Site specific YARN configuration properties -->
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+<description>Use yarn to tell MapReduce that it will run as a YARN application</description>
+</property>
+<property>
+<name>yarn.app.mapreduce.am.env</name>
+<value>HADOOP_MAPRED_HOME=/opt/hadoop-3.3.0/</value>
+</property>
+<property>
+<name>mapreduce.map.env</name>
+<value>HADOOP_MAPRED_HOME=/opt/hadoop-3.3.0/</value>
+</property>
+<property>
+<name>mapreduce.reduce.env</name>
+<value>HADOOP_MAPRED_HOME=/opt/hadoop-3.3.0/</value>
+</property>
+</configuration>

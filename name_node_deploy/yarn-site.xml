@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- Put site-specific property overrides in this file. -->
+<configuration>
+<!-- Site specific YARN configuration properties -->
+<property>
+   <name>yarn.resourcemanager.node.exclude-path</name>
+   <value>/home/ubuntu/excludes</value>
+</property>
+<property>    
+   <name>yarn.resourcemanager.nodes.include-path</name>
+   <value>/home/ubuntu/includes</value>
+</property>
+<property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+    <description>Tell NodeManagers that there will be an auxiliaryservice called mapreduce.shufflethat they need to implement</description>
+</property>
+<property>
+    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+    <description>A class name as a means to implement the service</description>
+</property>
+<property>
+    <name>yarn.resourcemanager.hostname</name>
+   <value>172.31.54.248</value>
+</property>
+</configuration>
