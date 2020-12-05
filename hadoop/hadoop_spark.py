@@ -471,6 +471,7 @@ analytics_functions.replace_single_term('../analytics_files/tfidf_template.py', 
 
 # c = analytics_functions.theconnector('54.86.67.155', 'hadoop_spark')
 c.sudo('apt -y install python3-pip')
+c.run('pip3 install pyspark')
 c.put('../analytics_files/pearson.py')
 c.put('../analytics_files/tfidf.py')
 c.close()

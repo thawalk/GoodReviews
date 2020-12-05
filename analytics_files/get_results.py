@@ -7,7 +7,7 @@ sys.path.append('../hadoop')
 import scaling
 
 
-shutil.copy('../{}.pem'.format(scaling.key_pair), './')
+shutil.copy('../hadoop/{}.pem'.format(scaling.key_pair), './')
 
 # change tfidf_output to testcopy
 bash_file = open("get_tfidf.sh", 'w')
@@ -16,7 +16,7 @@ bash_file.close()
 
 c = analytics_functions.theconnector(scaling.namenode_ip, scaling.key_pair)
 print('now getting the Pearson Correlation (this will take ~1min and printed to console)')
-c.run(' export PYSPARK_PYTHON=/usr/bin/python3 && python3 pearson.py')
+c.run('export PYSPARK_PYTHON=/usr/bin/python3 && python3 pearson.py')
 # c.run('cd tfidf_output && ls')
 
 print('now getting the TFIDF (this will take 8-10 mins)')
