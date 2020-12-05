@@ -395,19 +395,13 @@ for instance_ip in datanode_ips:
 
 print('-------------------------------------------done with the hadoop installation------------------------------------------------')
 
-
-# for instance_ip in datanode_ips:
-#   c = analytics_functions.theconnector(instance_ip, key_pair)
-#   c.sudo('mkdir -p /mnt/hadoop/datanode/')
-#   c.sudo('chown -R ubuntu:ubuntu /mnt/hadoop/datanode')
-
-#  ------------------------------------------ start the hadoop cluster ------------------------------------------------------- >
+# #  ------------------------------------------ start the hadoop cluster ------------------------------------------------------- >
 
 print('-------------------------------------------- starting the pysqoop installation -------------------------------------------')
 
 c = analytics_functions.theconnector(namenode_ip, key_pair)
 c.run('yes Y |/opt/hadoop-3.3.0/bin/hdfs namenode -format')
-c.run('/opt/spark-3.0.1-bin-hadoop3.2/sbin/start-all.sh')
+c.run('/opt/hadoop-3.3.0/sbin/start-dfs.sh && /opt/hadoop-3.3.0/sbin/start-yarn.sh')
 
 
 # # ---------------------------------------- installing pysqoop in the namenode ----------------------------------------------------
@@ -451,6 +445,8 @@ print('-------------------------------------------- Done with the pysqoop instal
 
 
 # # -------------------------------------------------------------------- Ingesting the data ----------------------------------------------------------
+
+
 
 
 load_dotenv()
@@ -523,7 +519,7 @@ print('-------------------------------------------- starting the spark cluster -
 
 c = analytics_functions.theconnector(namenode_ip,key_pair)
 
-c.run('/opt/hadoop-3.3.0/sbin/start-dfs.sh && /opt/hadoop-3.3.0/sbin/start-yarn.sh')
+c.run('/opt/spark-3.0.1-bin-hadoop3.2/sbin/start-all.sh')
 c.run('/opt/hadoop-3.3.0/bin/hdfs dfsadmin -report')
 c.run('jps')
 
