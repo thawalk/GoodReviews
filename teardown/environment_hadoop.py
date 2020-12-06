@@ -1,3 +1,3 @@
-ec2_ids=['i-089a2689d39dddcf3', 'i-07f3e6099894e58aa', 'i-0674599a84c50a891', 'i-01ad28ff80970153f', 'i-0141c5fc97079d066', 'i-09edbc787997ab54a']
-security_groups=['sg-0749cbe17e89e788a']
+ec2_ids=['i-089257142358ef387', 'i-01fe7ce1e5486068f', 'i-0b0f17acd4f5cbd59', 'i-024a017a2acc1ae43']
+security_groups=['sg-0b4bf22f8d5296744']
 key_pair='hadoop_spark'

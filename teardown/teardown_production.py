@@ -17,6 +17,8 @@ session = boto3.session.Session(
     region_name=credentials.region_name
     )
 
+    
+
 ec2_resource = session.resource('ec2')
 
 
@@ -62,4 +64,4 @@ for sgid in security_grps:
     delete_sg = ec2.delete_security_group(GroupId=sgid)
 
 
-print('--------------------------------donesies----------------------------------')
+print('--------------------------------done tearing down the Production ec2s----------------------------------')
