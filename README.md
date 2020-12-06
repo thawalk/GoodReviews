@@ -74,7 +74,7 @@
     **In any event the `production.py` fails, or gets stuck in a loop, stop the script by using `CTRL + C` . Then, teardown all the instances, instructions [HERE](#Tearing-Down-Instructions)**
 
 4. The public IP of the EC2 instance hosting the web application will be printed on the console. The website can then be viewed at `<public IP 1>` printed at the end. 
-
+	</br>
     <img src="/images/front_end_output.jpg" width=600px/></br>
     This is the link of the website.
 
@@ -144,7 +144,7 @@
     
     **In any event the `hadoop_down_node.py` fails, or gets stuck in a loop, you would need to `CTRL + C`. Then, rerun `hadoop_down_node.py` again**
     
-    <img src="/images/decommissioning_data_notes.jpg" /></br>
+   
     
 ### Tearing Down Instructions
 1. First, we have to change directory into the `db-final/teardown` folder where all our teardown scripts will be at
@@ -308,12 +308,10 @@ This is the image for the excludes file:
 <img src="/images/excludes_photo.jpg" width=600px/></br>
 
 ##### (3) The way we achieved the commissioning and decommissioning of the new nodes.
-We added some special configuration to the namenode yarn and hdfs file. These are the images below:
+We added some special configuration to the namenode yarn file. These is the image below:
  
  <img src="/images/yarn_site_config.jpg" width=600px/></br>
  
-<img src="/images/hdfs_site_config" /></br>
-
 
 This configuration would use file named as 'includes', where the new nodes that are 
 ### Approach
