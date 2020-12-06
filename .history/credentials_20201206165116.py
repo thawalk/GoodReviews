@@ -1,0 +1,4 @@
+aws_access_key_id='ASIAQU77KV7UTXGOUU5N'
+aws_secret_access_key='KGgCNnD7PFT+BRX7FKMRj0X/hEzwD6nzn2HFZvDs'
+aws_session_token='FwoGZXIvYXdzEIj//////////wEaDAFG+fnbnhrz+osL/iLOAY+KODV/Y3C+BEnTniH9p8ovuK/HAWkhkDbxRxxPaI4zrCaSB7N8FX3vdhiq/kzaWwVm01zCLU9p7U5+hpnbxQdtgVlgXBC5XTGaH+IRRlqjmHvEs0iBTMhmxOt/uOMGM+E/3QvE7QG5byOQTQg1QmuUJHFKMs3lw7e1Ez0TemSbpLt0s+5k8rIBt1MYDZk9Qc90sbU5U1SrjakwHjqx8dHDepM1LDuKZpGiEp2Ab1QugtsjOYEnnfQLi4/OhR/AaG9zR0SJ78ANW0OgWQQSKIvxsf4FMi0Cw8TDFbFJb7jrEdg4PiT2LSHWAm2ebIuEcwt3w/HVy3cQkIvFwGzb4xC+FIw='
+region_name='us-east-1'
