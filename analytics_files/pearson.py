@@ -7,7 +7,7 @@ import subprocess
 import math
 from pyspark.sql.types import StructType, StringType, IntegerType
 
-private_ip = '172.31.54.248'
+private_ip = '172.31.61.248'
 
 private_ip = private_ip.replace('.', '-')
 
@@ -84,4 +84,6 @@ den = math.sqrt((k*sumx_sq - sumx**2) * (k*sumy_sq - sumy**2))
 
 out = num/den
 
+
+print('----This is the pearson correlation-----')
 print('Pearson Correlation = ', out)

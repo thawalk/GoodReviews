@@ -15,13 +15,16 @@ bash_file.write('scp -i {}.pem -r ubuntu@{}:tfidf_output ./'.format(scaling.key_
 bash_file.close()
 
 c = analytics_functions.theconnector(scaling.namenode_ip, scaling.key_pair)
-print('now getting the Pearson Correlation (this will take ~1min and printed to console)')
-c.run('export PYSPARK_PYTHON=/usr/bin/python3 && python3 pearson.py')
+
 # c.run('cd tfidf_output && ls')
 
 print('now getting the TFIDF (this will take 8-10 mins)')
 c.run('python3 tfidf.py')
 print('downloading the tfidf, will take awhile')
+
+print('now getting the Pearson Correlation (this will take ~1min and printed to console)')
+c.run('export PYSPARK_PYTHON=/usr/bin/python3 && python3 pearson.py')
+
 
 # #test copying
 # c.run('mkdir ./testcopy')

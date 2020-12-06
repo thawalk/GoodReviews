@@ -4,7 +4,7 @@ import time
 from fabric import Connection
 from botocore.exceptions import ClientError
 sys.path.append('../')
-import credentials
+# import credentials
 import analytics_functions
 
 aws_access_key_id = input('Please key in your AWS access key ID: ')
@@ -391,9 +391,10 @@ while(not success):
 # print('mysql ip\n', mysql_ip)
 print("------------------------------Front end website below--------------------------")
 
-print('Website is at:')
+print('----------------------------------Website is at---------------------------------------------')
 print(web_ip)
-print('Just copy paste this into the browser')
+print('---------------------------Just copy paste above ip into the browser------------------------')
+
 try:
     c = analytics_functions.theconnector(web_ip,key_pair)
     c.run('cd db_flask_server && sudo python3 app.py')

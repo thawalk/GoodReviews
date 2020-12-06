@@ -9,19 +9,31 @@ import credentials
 import analytics_functions
 
 
-print('Do not key in a number more than the current number of live data nodes, you will crash the script!')
+aws_access_key_id = input('Please key in your AWS access key ID: ')
 
-specified_num_nodes = input('Please key in the number of nodes you want to decommission:')
+aws_secret_access_key = input('Please key in your AWS secret access key: ')
 
+aws_session_token =input('Please key in your session token: ')
+
+specified_num_nodes = int(input('Please key in the number of nodes you want to decommission:'))
+
+region_name='us-east-1'
+
+# python 2
+credentials_file = open("../credentials.py", 'w')
+credentials_file.write('aws_access_key_id=\'{}\'\n'.format(aws_access_key_id))
+credentials_file.write('aws_secret_access_key=\'{}\'\n'.format(aws_secret_access_key))
+credentials_file.write('aws_session_token=\'{}\'\n'.format(aws_session_token))
+credentials_file.write('region_name=\'{}\'\n'.format(region_name))
+credentials_file.close()
 
 ec2 = boto3.client(
-    'ec2',
-    aws_access_key_id=credentials.aws_access_key_id,
-    aws_secret_access_key=credentials.aws_secret_access_key,
-    aws_session_token=credentials.aws_session_token,
-    region_name=credentials.region_name
+    'ec2', 
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+    aws_session_token=aws_session_token,
+    region_name=region_name
 )
-
 
 
 
@@ -36,16 +48,6 @@ public_namenode_ip = scaling.namenode_ip
 older_private_ips =scaling.private_ips
 
 
-# private_namenode_ip = scaling.private_namenode_ip
-# older_public_ips =scaling.public_ips
-# older_datanode_public_ips = scaling.datanode_ips
-
-# older_private_datanode_dns_list = scaling.private_datanode_dns_list
-# older_instance_node_list = scaling.older_instance_node_list
-# older_data_node_ips = scaling.older_data_node_ips
-
-
-specified_num_nodes = 2
 
 node_to_remove_private_ip_list = []
 for i in range(1,specified_num_nodes + 1):

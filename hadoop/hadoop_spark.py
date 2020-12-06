@@ -5,7 +5,7 @@ import time
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 sys.path.append('../')
-import credentials
+# import credentials
 import analytics_functions
 
 
@@ -17,7 +17,7 @@ aws_secret_access_key = input('Please key in your AWS secret access key: ')
 
 aws_session_token =input('Please key in your session token: ')
 
-specified_num_nodes = input('Please key in the number of nodes for the cluster:')
+specified_num_nodes = int(input('Please key in the number of nodes for the cluster:'))
 
 
 
@@ -527,6 +527,9 @@ c.run('jps')
 c.close()
 
 
+print("--------------------------Done, hadoop and spark cluster is running with the data ingested -----------------------")
+print("-------------------------Scroll up to see the hdfs report and jps after spark is installed-----------------------")
+
 
 # print('----------------------------------namenode stuff---------------------------')
 # print('-------------------------------------------------------------------------')
@@ -545,6 +548,3 @@ c.close()
 # print(allnodes_private_ips)
 # print('-----------------------------------end of info------------------------------------')
 
-
-
-print("--------------------------Done, hadoop and spark cluster is running with the data ingested -----------------------")

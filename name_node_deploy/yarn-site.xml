@@ -23,6 +23,6 @@
 </property>
 <property>
     <name>yarn.resourcemanager.hostname</name>
-   <value>172.31.54.248</value>
+   <value>172.31.61.248</value>
 </property>
 </configuration>

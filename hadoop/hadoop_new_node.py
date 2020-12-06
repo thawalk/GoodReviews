@@ -9,15 +9,34 @@ import credentials
 import analytics_functions
 
 
-specified_num_nodes = input('Please key in the number of nodes you want:')
+aws_access_key_id = input('Please key in your AWS access key ID: ')
+
+aws_secret_access_key = input('Please key in your AWS secret access key: ')
+
+aws_session_token =input('Please key in your session token: ')
+
+specified_num_nodes = int(input('Please key in the number of nodes you want to commission:'))
+
+
+
+region_name='us-east-1'
+
+# python 2
+credentials_file = open("../credentials.py", 'w')
+credentials_file.write('aws_access_key_id=\'{}\'\n'.format(aws_access_key_id))
+credentials_file.write('aws_secret_access_key=\'{}\'\n'.format(aws_secret_access_key))
+credentials_file.write('aws_session_token=\'{}\'\n'.format(aws_session_token))
+credentials_file.write('region_name=\'{}\'\n'.format(region_name))
+credentials_file.close()
 
 ec2 = boto3.client(
-    'ec2',
-    aws_access_key_id=credentials.aws_access_key_id,
-    aws_secret_access_key=credentials.aws_secret_access_key,
-    aws_session_token=credentials.aws_session_token,
-    region_name=credentials.region_name
+    'ec2', 
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+    aws_session_token=aws_session_token,
+    region_name=region_name
 )
+    
 
 analytics_functions.list_ec2_instances(ec2)
 # <------------------------------- getting the necessary information from scaling file--------------------------------->
@@ -32,7 +51,6 @@ older_private_ips = scaling.private_ips
 older_private_datanode_dns_list = scaling.private_datanode_dns_list
 older_instance_node_list = scaling.older_instance_node_list
 older_data_node_ips = scaling.older_data_node_ips
-
 
 
 
@@ -297,7 +315,7 @@ for instance_ip in olderForLoopPublicIPS:
     success = False
     while(not success):
         try:
-            c = analytics_functions.theconnector(instance_ip, 'hadoop_test')
+            c = analytics_functions.theconnector(instance_ip, key_pair)
             c.sudo('apt-get -y update')
             c.put('../all_nodes_deploy/hosts')
             c.sudo('mv hosts /etc/hosts')
@@ -326,9 +344,6 @@ c.put('./excludes')
 c.run('/opt/hadoop-3.3.0/sbin/stop-all.sh')
 c.run('/opt/hadoop-3.3.0/sbin/start-dfs.sh && /opt/hadoop-3.3.0/sbin/start-yarn.sh')
 c.run('/opt/hadoop-3.3.0/bin/hdfs dfsadmin -report')
-c.run('/opt/hadoop-3.3.0/bin/hadoop balancer')
 c.close()
-
-
 
 print("----------Done adding the nodes! Scroll up to see the report for the updated cluster-----------")

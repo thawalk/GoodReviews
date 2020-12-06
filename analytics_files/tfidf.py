@@ -7,7 +7,7 @@ import os
 import subprocess
 import math
 
-private_ip = '172.31.54.248'
+private_ip = '172.31.61.248'
 
 private_ip = private_ip.replace('.', '-')
 
@@ -35,7 +35,6 @@ for i in range(len(files)-3):
         df_review_i =  sesh.read.option('header', False).option( 'delimiter', '\t').schema(schema) \
                                 .csv('hdfs://ip-{}.ec2.internal:9000/user/ubuntu/kindle_reviews/part-m-0000{}'.format(private_ip, (i+1)))
         df_review = df_review.union(df_review_i)
-        print(df_review.count())
 
 #print(df_review.printSchema())
 
@@ -56,6 +55,8 @@ df_review_dropped = df_review.drop("helpful") \
                                 .drop("unixReviewTime")\
                                 .drop("id")
 
+
+print('------------------------------------------------------------------------------------------')
 print('after dropped')
 print(df_review_dropped.first())
 

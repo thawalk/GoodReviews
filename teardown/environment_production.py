@@ -1,3 +1,3 @@
-ec2_ids=['i-056d8a15f206e6256', 'i-0d633d91255056beb', 'i-0ea7897187abba06a']
-security_groups=['sg-09a250fe8a125a9ea', 'sg-076d55bee72b45105', 'sg-0f106b3e172e2b712']
+ec2_ids=['i-030d29fa60f83d747', 'i-060e3f58d180fefb1', 'i-0212b797a1a6d58ab']
+security_groups=['sg-04f0c41c29d956143', 'sg-00b6cae8e0a610f0b', 'sg-00c454bd1a29906d8']
 key_pair='mongo-sql-server'
