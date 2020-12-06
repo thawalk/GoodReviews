@@ -38,21 +38,16 @@ waiter = ec2.get_waiter('instance_terminated')
 ec2.terminate_instances(InstanceIds = ids)
 print("Waiting for instances to terminate")
 waiter.wait(InstanceIds=ids)
-
-
 # time.sleep(10)
-
-
-
 
 # # delete the key
 delete_key =  ec2.delete_key_pair(KeyName=key_pair)
-
 
 # # remove the security groups
 for sgid in security_grps:
     print(sgid)
     delete_sg = ec2.delete_security_group(GroupId=sgid)
 
+open('../hadoop/excludes', 'w').close()
 
-print('--------------------------------donesies----------------------------------')
+print('--------------------------------done tearing down the Hadoop ec2s----------------------------------')
