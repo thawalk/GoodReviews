@@ -113,7 +113,7 @@
     
     A sample of the TF-IDF and correlation analytics output can be seen below. <br/>
     
-    Pearson 
+    Pearson</br>
     <img src="/images/pearson_correlation_output.jpg" width=600px/></br>
     TF-IDF
     The folder with all the CSVs will be saved locally in the analytics_files folder after you run the script
