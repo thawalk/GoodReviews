@@ -144,7 +144,7 @@
     
     **In any event the `hadoop_down_node.py` fails, or gets stuck in a loop, you would need to `CTRL + C`. Then, rerun `hadoop_down_node.py` again**
     
-    <img src="/images/decommissioning_data_notes.jpg" width=600px/></br>
+    <img src="/images/decommissioning_data_notes.jpg" /></br>
     
 ### Tearing Down Instructions
 1. First, we have to change directory into the `db-final/teardown` folder where all our teardown scripts will be at
@@ -312,7 +312,7 @@ We added some special configuration to the namenode yarn and hdfs file. These ar
  
  <img src="/images/yarn_site_config.jpg" width=600px/></br>
  
-<img src="/images/hdfs_site_config" width=600px/></br>
+<img src="/images/hdfs_site_config" /></br>
 
 
 This configuration would use file named as 'includes', where the new nodes that are 
