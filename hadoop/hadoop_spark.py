@@ -450,10 +450,10 @@ print('-------------------------------------------- Done with the pysqoop instal
 
 
 load_dotenv()
-mysql_ip = os.getenv('HOST')
+mysql_ip = os.getenv('host')
 c.run('/opt/sqoop-1.4.7/bin/sqoop import-all-tables --fields-terminated-by "\t" --connect jdbc:mysql://{}/reviews?useSSL=false --username sqoop --password sqoop123'.format(mysql_ip))
 
-mongo_ip = os.getenv('MONGO_URL')
+mongo_ip = os.getenv('mongo_url')
 c.run('wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu1804-x86_64-100.2.1.deb')
 c.run('sudo apt install ./mongodb-database-tools-*-100.2.1.deb')
 c.run('mongoexport --uri="mongodb://{}:27017/test" --collection=test_collection --out=metadata.json'.format(mongo_ip))

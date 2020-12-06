@@ -1,1 +1,0 @@
-scp -i hadoop_spark.pem -r ubuntu@54.160.112.82:tfidf_output ./

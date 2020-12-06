@@ -360,7 +360,9 @@ success = False
 while(not success):
     try:
         c = analytics_functions.theconnector(web_ip, key_pair)
-        c.run('git clone https://github.com/thawalk/db_flask_server.git')
+        c.sudo('apt-get install unzip')
+        c.run('wget https://db-project-akmal.s3.amazonaws.com/db_flask_server.zip')
+        c.run('unzip db_flask_server.zip')
         c.sudo('apt -y install python3-pip')
         c.put('../.env')
         c.run('mv .env ./db_flask_server')
@@ -372,7 +374,8 @@ while(not success):
         c.run('pip3 install numpy')
         c.run('pip3 install flask-cors')
         c.put('./ip.txt')
-        c.run('git clone https://github.com/sesiliafenina/db-project.git')
+        c.run('wget https://db-project-akmal.s3.amazonaws.com/db-project.zip')
+        c.run('unzip db-project.zip')
         c.run('mv ip.txt ./db-project/')
         c.sudo('apt-get -y install nginx')
         c.sudo('mv /home/ubuntu/db_flask_server/default /etc/nginx/sites-available')

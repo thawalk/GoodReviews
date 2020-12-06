@@ -74,7 +74,6 @@ c.put('./excludes')
 c.run('/opt/hadoop-3.3.0/bin/yarn rmadmin -refreshNodes')
 c.run('/opt/hadoop-3.3.0/bin/hdfs dfsadmin -refreshNodes')
 c.run('/opt/hadoop-3.3.0/bin/hdfs dfsadmin -report')
-# c.run('/opt/hadoop-3.3.0/bin/hadoop balancer')
 c.close()
 
 print("----------Done decommissioning the nodes! Scroll up to see the report for the updated cluster-----------")

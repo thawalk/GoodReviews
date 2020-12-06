@@ -162,7 +162,7 @@ for private_ip in total_new_private_ip_list:
 workers.close()
 
 print("Waiting for instances to start up")
-time.sleep(80)
+time.sleep(120)
 
 
 # ---------------------------------- update the packages on the new data nodes------------------------------------------- >
@@ -170,8 +170,7 @@ time.sleep(80)
 print("------------------------- Updating the packages on the new data nodes --------------------------------------")
 
 
-print(new_node_ips)
-print(key_pair)
+
 # update the packages only on the new nodes
 for instance_ip in new_node_ips:
     success = False
