@@ -1,5 +1,6 @@
 # 50.043 Database and Big Data Systems Project
 
+**NOTE: Due to a recent update on 9 December for the Python Cryptography package which is required by the fabric package we used some of our scripts may not work as intended. Already informed Prof Dinh, Prof Kenny and GTA Vishva during presentation. See [here](https://pypi.org/project/cryptography/#history).**
 
 ## Table of Contents
 * [Contributors](#Contributors)
@@ -43,19 +44,22 @@
 ### Instructions
 
 #### Setting up project folder and required packages
-1. Clone the project repository using the following command
+1. Install the necessary packages
+   ```
+    sudo apt-get -y update &&
+    sudo apt -y install python3-pip && 
+    pip3 install pip &&
+    pip3 install --upgrade setuptools &&
+    pip3 install boto3 &&
+    pip3 install -U python-dotenv &&
+    sudo apt-get install build-essential libssl-dev libffi-dev python-dev &&
+    pip install fabric  
+   ```
+2. Clone the project repository using the following command
     ```
     git clone https://github.com/thawalk/db-final.git
     ```
-2. Install the necessary packages
-   ```
-   sudo apt-get -y update 
-   sudo apt -y install python3-pip
-   pip3 install boto3
-   pip3 install --upgrade setuptools
-   pip3 install fabric
-   pip3 install -U python-dotenv
-   ```
+
 #### Running the production script
 1. Change directory into the db-final/production folder 
     ```
@@ -94,7 +98,7 @@
     
     <img src="/images/hadoop_start_key.jpg" width=600px/></br>
     
-    **In any event the `hadoop_spark.py` fails, or gets stuck in a loop, click HERE**
+    **In any event the `hadoop_spark.py` fails, or gets stuck in a loop, click [HERE](#Tearing-Down-Instructions)**
     <img src="/images/initial_cluster_start.jpg" width=600px/></br>
     <img src="/images/initial_spark_cluster_start.jpg" width=600px/></br>
     
@@ -120,10 +124,12 @@
     <img src="/images/tfidf_output.jpg" width=600px/></br>
     
     
-    <img src="/images/front_end_output.jpg" width=600px/></br>
+    
 2. If you want to commission new nodes to the cluster, you can execute this script. This execution will take approximately 20-30 minutes. Run:
 
     ```
+    cd ..
+    cd hadoop
     python3 hadoop_new_node.py
     ```
     **NOTE**: Similar to running `production.py`, you will be asked for AWS Access key id, AWS Secret Access Key and AWS Session Token. These details can be found in your AWS Account. You will also be asked for the number of nodes to be added to the cluster. Key in the number of clusters that you want to add to the cluster.
@@ -138,6 +144,7 @@
     ```
     python3 hadoop_down_node.py
     ```
+    **NOTE**: If your hadoop_new_node.py has previously failed, please teardown entire cluster and rerun `hadoop_spark.py` before running `hadoop_down_node.py`.
     **NOTE**: Similar to running `production.py`, you will be asked for AWS Access key id, AWS Secret Access Key and AWS Session Token. These details can be found in your AWS Account. You will also be asked for the number of nodes that you want to decommission from the cluster. Key in the number of clusters that you want to remove from the cluster.
     
     <img src="/images/decommission_key.jpg" width=600px/></br>
